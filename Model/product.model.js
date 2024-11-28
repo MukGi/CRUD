@@ -1,5 +1,5 @@
-const mongoose = require('mongoose')
-const { float } = require('three/webgpu')
+const mongoose = require('mongoose');
+
 
 const ProductSchema =  mongoose.Schema(
     {

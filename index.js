@@ -47,5 +47,9 @@ app.use('/stuff', stuff)
 
 //Product page
 app.post('/api/products',(req,res)=>{
-  res.send(req.body);
+  try {
+    res.send(req.body);
+  } catch (error) {
+    res.send(500).json({message: error.message})
+  }
 });
