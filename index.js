@@ -1,10 +1,15 @@
+//Imports
 const express = require('express')
 const app = express()
-app.use(express.json)
-const PORT = 3000;
+app.use(express.json())
 const mongoose = require('mongoose')
+require('dotenv/config')
+const PORT = 3000;
 
-var stuff = require('./stuff');
+//Product schema
+const Product = require('./Model/product.model.js');
+//Import Route
+const productsRoute = require('./Router/Products')
 
 //Serve Port
 app.listen(PORT, ()=>{
@@ -12,7 +17,7 @@ app.listen(PORT, ()=>{
 })
 
 // Connecting to the database
-mongoose.connect("mongodb+srv://giftmukolo:Trx*08007@crud-cluster.sgyrd.mongodb.net/?retryWrites=true&w=majority&appName=CRUD-cluster")
+mongoose.connect(process.env.SHOP_URL)
 .then(()=>{
   console.log("Connected to Database")
   
@@ -42,8 +47,8 @@ app.delete('/',(req, res)=>{
   res.send('DELETED')
 })
 
-//Stuff Route
-app.use('/stuff', stuff)
+//Product Route
+app.use('/Product', productsRoute);
 
 //Product page
 app.post('/api/products',(req,res)=>{
