@@ -26,7 +26,6 @@ mongoose.connect(process.env.SHOP_URL)
   console.log("Connection Failed")
 })
 
-
 //CREATE in CRUD
 app.post('/',(req,res)=>{
   res.send('CREATE')
