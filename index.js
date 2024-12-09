@@ -7,7 +7,7 @@ require('dotenv/config')
 const PORT = 3000;
 
 //Product schema
-const Product = require('./Model/product.model.js');
+const Product = require('./Model/product.model');
 //Import Route
 const productsRoute = require('./Router/Products')
 
@@ -50,11 +50,3 @@ app.delete('/',(req, res)=>{
 //Product Route
 app.use('/Product', productsRoute);
 
-//Product page
-app.post('/api/products',(req,res)=>{
-  try {
-    res.send(req.body);
-  } catch (error) {
-    res.send(500).json({message: error.message})
-  }
-});
