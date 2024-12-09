@@ -33,7 +33,7 @@ app.post('/',(req,res)=>{
 })
 //READ in CRUD
 app.get('/', (req, res)=>{
-  res.send('READ');
+  res.send('READ in Homepage');
 })
 
 //UPDATE in CRUD
